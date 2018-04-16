@@ -156,7 +156,7 @@ class PartialDateField(models.Field):
 
     def get_prep_value(self, value):
         if value in (None, ''):
-            return value
+            return None
         partial_date = self.to_python(value)
         date = partial_date.date
         return datetime.datetime(date.year, date.month, date.day, second=partial_date.precision)
