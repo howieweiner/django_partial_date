@@ -155,7 +155,7 @@ class PartialDateField(models.Field):
         )
 
     def get_prep_value(self, value):
-        if value is None:
+        if value in (None, ''):
             return value
         partial_date = self.to_python(value)
         date = partial_date.date
